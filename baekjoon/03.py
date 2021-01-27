@@ -21,7 +21,7 @@
 # for n in s:
 #     print(n)
 # ###short
-# for _ in range(int(sys.stdin.readlint())):
+# for _ in range(int(sys.stdin.readline())):
 #     print(sum(map(int,sys.stdin.readline().rstrip().split())))  #rstrip (오른쪽 공백/동일 문자제거)
 
 #8393

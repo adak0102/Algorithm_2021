@@ -49,6 +49,7 @@
 #     while (i>0) & (list[i] < list[i-1]):
 #         list[i],list[i-1]=list[i-1],list[i]
 #         i-=1
+
 #(3)Bubbel Sort
 # for i in range(len(list)):
 #     for j in range(len(list)):
@@ -128,6 +129,7 @@
 #
 # for a in list:
 #     print (a)
+
 # import timeit
 # start=timeit.default_timer()
 ##l=[1,48,-3,225,-6,8,5,90,45,3]
@@ -135,7 +137,6 @@
 # merge_sort(l)
 # print(l)
 # print('time: %f' %(timeit.default_timer()-start))
-##
 
 # my wrong
 # def Mergesort(L:list):
@@ -172,9 +173,24 @@
 # Mergesort(list)
 # print(list)
 
-##SHORT
-        #추가하기#내장함수 사용
-
+#short 1-3
+# ##SHORT(1)
+# from sys import stdin, stdout
+# input()
+# arr=sorted(map(int,stdin.read().split()))
+# stdout.write('\n'.join(map(str,arr)))
+#
+# ##SHORT(2)
+# import sys
+# n=int(sys.stdin.readline())
+# a=sorted(list(map(int,sys.stdin.read().split())))
+# print('\n'.join(map(str,a)))
+#
+# ##short(3)
+# import sys
+# n,*s= map(int,sys.stdin.read().split())
+#
+# print(*sorted(s),sep='\n')
 
 #10989 (COUNTING SORT)
 #수의 범위가 작다면 카운팅 정렬을 사용하여 더욱 빠르게 정렬할 수 있습니다
@@ -206,8 +222,6 @@
 # print(countsort(list, max(list)))
 #
 
-
-
 ##https://zetawiki.com/wiki/BOJ_10989_%EC%88%98_%EC%A0%95%EB%A0%AC%ED%95%98%EA%B8%B0_3
 #countsort(2)
 # MAX=10000
@@ -231,7 +245,6 @@
 # 		if li[j] >= 1:
 # 				for k in range(li[j]):
 # 						print(j)
-
 
 ##
 #countsort(4)
@@ -280,8 +293,64 @@
 # for a in count:
 #     print(a)
 
+##short(1)
+# f=open(0)
+# f.readline()
+# li=[0]*10001
+# for line in f:
+#     li[int(line)]+=1
+# for i in range(1, 10001):
+#     print(f'{i}\n'*li[i], end='')
 
 #2108
+# import sys
+# N=int(sys.stdin.readline())
+# li=[ int(sys.stdin.readline().rstrip()) for _ in range(N)]
+#
+# # N,*a = sys.stdin.read() #readlines()
+# # print(N,a)
+#
+# print(round(sum(li)/len(li)))
+# sor=sorted(li)
+# print(sor[len(li)//2])
+# #li.sort()
+# #print(li[len(li]//2])
+#
+# #딕셔너리로 만들고 출력
+# di={}
+# for a in li:
+#     if a in di.keys() :
+#         di[a]+=1
+#     else:
+#         di[a] = 1
+#
+# ma=max(di.values())
+# fre={}
+# for a in di.keys():
+#     if di[a]==ma:
+#         fre.append(fre[a])
+# if len(fre)>1:
+#     print(fre[1])
+# else: print(fre[0])
+# #print(di)
+# print(max(di))
+#
+# print(max(li)-min(li))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #1427 소트인사이드
 # import sys
@@ -300,16 +369,91 @@
 # for a in list:
 #     print(a,end='')
 
+#short 5
+# ##short(1)
+# print(''.join(sorted(input())[::-1]))
+# #short(2)
+# print(''.join(sorted(input(),reverse=True)))
+# #short(3)
+# n=input()
+# print(''.join(sorted(n,reverse=True)))
+# #short(4)
+# import sys
+# print(''.join(sorted(sys.stdin.readline().rstrip())[;;-1]))
+# #short(5)
+# p=list(map(int,input()))
+# p.sort(reverse=True)
+# p=list(map(str,p))
+# print(''.join(p))
+
 ###################################################################################
 ###short 확인 필요 #https://dojang.io/mod/page/view.php?id=2286 #map 다시 읽고 정리####
 ###################################################################################
 
 
 #11650
+import sys
+N=int(sys.stdin.readline())   #sys.stdin 은 전부 읽어오는거 인듯  #IO = sys.stdin.read().split('\n')
+                              #sys.stdin() 틀림 -> sys.stdin
+
+#li=[[0,0]]*N # 이러면 왜 안되는지???
+#list comprehension 이랑 zip함수
+
+li=[[ _ for _ in range(2)] for _ in range(0,N)]
+# for a in range(N):
+#     li[a][0],li[a][1] = input().rstrip().split()
+
+for a in range(N):
+    li[a][0],li[a][1] = sys.stdin.readline().split()
+
+li.sort()
+
+for a in range(N):
+
+    print(li[a][0],li[a][1])
+
+###Again###
+# left=[]
+# right=[]
+left={}
+right={}
+for i in range(N):
+    a,b= map(int, sys.stdin.readline().rstrip().split())
+    left[i]=a
+    right[i]=b
+
+if
+
+
+
+
+    # left.append(a)
+    # right.append(b)
+
+#딕셔너리 사용
+# dic={}
+# for i, j in enumerate(left):
+#     dic[i]=j
+
+
+
+
+
+
+
 
 #11651
 
 #1181
-
+# import sys
+# N=int(sys.stdin.readline())
+# li=[]
+# for a in range(N):
+#     li.append(sys.stdin.readline().rstrip())
+#
+# li.sort()
+# print(li)
 #10814
+
+
 #값이 같은 원소의 전후관계가 바뀌지 않는 정렬 알고리즘을 안정 정렬(stable sort)이라고 합니다.
