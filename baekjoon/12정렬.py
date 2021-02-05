@@ -80,7 +80,6 @@
 # s=list(map(str,s))
 # print('\n'.join(s)) #sys.stdout.write("\n".join(map(str, numbers)))
 
-
 #2751 (MERGE SORT)
 #시간 복잡도가 O(nlogn)인 정렬 알고리즘으로 풀 수 있습니다.
 # 예를 들면 병합 정렬, 힙 정렬 등이 있지만, 어려운 알고리즘이므로 지금은 언어에 내장된 정렬 함수를 쓰는 것을 추천드립니다.
@@ -303,20 +302,92 @@
 #     print(f'{i}\n'*li[i], end='')
 
 #2108
-# import sys
-# N=int(sys.stdin.readline())
-# li=[ int(sys.stdin.readline().rstrip()) for _ in range(N)]
-#
+#지저분
+# # li=[ int(sys.stdin.readline().rstrip()) for _ in range(N)]
+# #
 # # N,*a = sys.stdin.read() #readlines()
 # # print(N,a)
+# #
+# #
+# # li.sort()
+# # print(li[len(li]//2])
 #
-# print(round(sum(li)/len(li)))
-# sor=sorted(li)
-# print(sor[len(li)//2])
-# #li.sort()
-# #print(li[len(li]//2])
+# #dic
+# dic={}
+# for a in range(N):
+#     new=int(sys.stdin.readline().rstrip())
+#     if new in dic.keys():
+#         dic[new]+=1
+#     else:
+#         dic[new]=1
 #
-# #딕셔너리로 만들고 출력
+#
+# #산술평균
+# print(sum(dic.keys())/len(dic))
+# #중앙값
+# print(dic[len(dic.keys())//2])
+# #범위
+# print(max(dic.keys())-min(dic.keys()))
+# #최빈값
+# sordic=sorted(dic.items(), key=lambda x:x[1])
+#
+# #많은 수인 값
+# most=sordic[-1]
+# print(most)
+# m=most[1]
+#
+# #키값 꺼내기
+# result=[]
+# for a ,b in dic.items():
+#     if b==m:
+#         result.append(int(a))
+# print(result)
+# #result=dic.keys(m)
+# print(result)
+# result=sorted(result)
+# if len(result)>=2:
+#     print(result[1])
+# else :
+#     print(result[0])
+#
+# 시간초과 풀이 (XXX)
+# import sys
+# N=int(sys.stdin.readline().rstrip())
+# ## 다시
+# li=[]
+# for a in range(N):
+#     li.append(int(sys.stdin.readline().rstrip()))
+# print(li)
+# #산술평균
+# print(round(sum(li)/len(li))) #소수점 이하 첫자리 반올림
+#
+# #중앙값
+# li.sort()
+# print(li[len(li)//2])
+
+#최빈값 (XXXX)
+#변수 for문 밖!!!
+# value=[]
+# ma = 1
+# for a in li:
+#     if a >= ma:
+#         ma
+#         value.append(a)
+# value.sort()
+#
+# print(value[1] if len(value)>=2 else print (value[0]))
+                        # if len(value)>=2 :
+                        #     print(value[1])
+                        # else :
+                        #     print(value[0])
+#
+#
+#
+# #범위
+# print(li[-1]-li[0]) #**#
+#                         #print(max(li)-min(li))
+
+
 # di={}
 # for a in li:
 #     if a in di.keys() :
@@ -332,21 +403,15 @@
 # if len(fre)>1:
 #     print(fre[1])
 # else: print(fre[0])
-# #print(di)
+#print(di)
+
+# print(round(sum(li)/len(li)))
+# sor=sorted(li)
+# print(sor[len(li)//2])
+#
 # print(max(di))
 #
 # print(max(li)-min(li))
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -387,73 +452,212 @@
 # print(''.join(p))
 
 ###################################################################################
-###short 확인 필요 #https://dojang.io/mod/page/view.php?id=2286 #map 다시 읽고 정리####
+###short 확인 필요 #https://dojang.io/mod/page/view.php?id=2286 #map 다시 정리####
 ###################################################################################
 
 
-#11650
-import sys
-N=int(sys.stdin.readline())   #sys.stdin 은 전부 읽어오는거 인듯  #IO = sys.stdin.read().split('\n')
-                              #sys.stdin() 틀림 -> sys.stdin
-
-#li=[[0,0]]*N # 이러면 왜 안되는지???
-#list comprehension 이랑 zip함수
-
-li=[[ _ for _ in range(2)] for _ in range(0,N)]
-# for a in range(N):
-#     li[a][0],li[a][1] = input().rstrip().split()
-
-for a in range(N):
-    li[a][0],li[a][1] = sys.stdin.readline().split()
-
-li.sort()
-
-for a in range(N):
-
-    print(li[a][0],li[a][1])
-
-###Again###
-# left=[]
-# right=[]
-left={}
-right={}
-for i in range(N):
-    a,b= map(int, sys.stdin.readline().rstrip().split())
-    left[i]=a
-    right[i]=b
-
-if
-
-
-
+#11650 (0)
+# ###Again###
+# # left=[]
+# # right=[]
+# left={}
+# right={}
+# for i in range(N):
+#     a,b= map(int, sys.stdin.readline().rstrip().split())
+#     left[i]=a
+#     right[i]=b
+# #딕셔너리 밸류값으로 sort
+#
+# for i in range(N):
+#     if left[i]
 
     # left.append(a)
     # right.append(b)
 
-#딕셔너리 사용
-# dic={}
-# for i, j in enumerate(left):
-#     dic[i]=j
+#내꺼 XXXXX 왜..ㅠ?
+# import sys
+# N=int(sys.stdin.readline())
+# #초기화 리스트
+# li=[[ _ for _ in range(2)] for _ in range(0,N)]
+# for a in range(N):
+#     li[a][0],li[a][1] = sys.stdin.readline().split()
+# li.sort() #[(1,2),(2,3)]
+# for a in range(N):
+#     print(li[a][0],li[a][1])
+#
+# #다시 (0)
+# import sys
+# N=int(sys.stdin.readline().rstrip())
+#
+# li=[]
+# for a in range(N):
+#     ####li = []#### FOR 문안에 LIST xxx 실수xxx
+#     new = list(map(int, sys.stdin.readline().rstrip().split()))
+#     li.append(new)
+#
+# li.sort(key = lambda x : (x[0],x[1]))
+# for a in li:
+#     print( a[0], a[1])
+
+##insert 나 remove는 시간이 많이 걸림 o(n)만큼 걸린다. 리스트는 인덱스..!!
+
+#short (검토 필요)
+# # https://www.acmicpc.net/problem/11650
+
+from sys import stdin, stdout
+
+stdout.write(
+    '\n'.join(
+        f'{v // 1000000 - 100000} {v % 1000000 - 100000}'
+        for v
+        in sorted(
+            (int(line.split()[0])+100000) * 1000000
+            + int(line.split()[1])+100000
+            for line in stdin.read().splitlines()[1:]
+        )
+    ) + '\n'
+)
+
+
+#Short
+
+# import sys
+# input = sys.stdin.readline
+# coords = [input() for _ in range(int(input()))]
+# coords = sorted(coords, key=lambda coord: (int(coord.split()[0]),int(coord.split()[1])))
+#
+# print(''.join(coords))
+
+#short 2
+# import sys
+# input=sys.stdin.readline
+# N=int(input())
+# li=list()
+# for _ in range(N):
+#     x,y=map(int,input().split())
+#     li.append((x,y))
+# print("\n".join(f"{n[0]} {n[1]}" for n in sorted(li)))
+
+#short 3 (검토 X)
+# from sys import stdin, stdout
+#
+# n = int(stdin.readline())
+# ans = []
+# for _ in range(n):
+#     ans.append(tuple(map(int, stdin.readline().split())))
+#
+# stdout.write('\n'.join(f"{i[0]} {i[1]}" for i in sorted(ans)))
 
 
 
+# 11651 (0)
+#(0)
+# import sys
+# N=int(sys.stdin.readline().rstrip())
+# li=[]
+# for a in range(N):
+#     ####li = []#### FOR 문안에 LIST xxx 실수xxx
+#     new = list(map(int, sys.stdin.readline().rstrip().split()))
+#     li.append(new)
+#
+# li.sort(key = lambda x : (x[1],x[0]))
+# for a in li:
+#     print( a[0], a[1])
+
+#SHORT 1 (*****) # 왜 [[],[]]은 안되고 [(),()]은 되는지 ?
+# import sys
+# input=sys.stdin.readline
+# N=int(input())
+# li=list()
+# for _ in range(N):
+#     x,y=map(int,input().split())
+#     li.append((y,x))
+# print("\n".join(f"{n[1]} {n[0]}" for n in sorted(li)))
 
 
+#SHORT 2 (나중)
+# from sys import stdin, stdout
+#
+# stdout.write(
+#     '\n'.join(
+#         f'{v % 1000000 - 100000} {v // 1000000 - 100000}'
+#         for v
+#         in sorted(
+#             (int(line.split()[1])+100000) * 1000000
+#             + int(line.split()[0])+100000
+#             for line in stdin.read().splitlines()[1:]
+#         )
+#     ) + '\n'
+# )
 
 
-
-#11651
-
-#1181
+#1181 (3. XXX)
 # import sys
 # N=int(sys.stdin.readline())
 # li=[]
 # for a in range(N):
 #     li.append(sys.stdin.readline().rstrip())
-#
 # li.sort()
 # print(li)
-#10814
 
+#dic={}
+# 딕셔너리로 input 받기
+
+# 1. 키값 숫자로
+# for a in range(N):
+#     new=sys.stdin.readline().rstrip()
+#     if len(new) not in dic.keys():
+#         dic[len(new)] = new
+#         #dic.setdefault(len(new))
+#         #dic[len(new)]=[]  #dic[len(new)]=[]
+#     else :
+#         dic[len(new)]=dic[len(new)],new
+
+# 2. 키 값 단어로
+# for a in range(N):
+#     new=sys.stdin.readline().rstrip()
+#     if len(new) not in dic:
+#         dic[len(new)]=new
+#     elif len(new) in dic and new not in dic[len(new)] :
+#         valuli=[]
+#         # print(dic[len(new)])
+#         # valuli=valuli.append(dic[len(new)])
+#
+#         valuli=dic[len(new)]
+#         valuli.append(new)
+#         #valuli.append(dic[len(new)])
+#         print(valuli)
+#         dic[len(new)]=valuli
+
+# 3. 다시 => 답 나오는데, 시간초과로  XXXX
+# # {단어 명 : 길이} 로 딕셔너리
+# dic={}
+# for a in range(N):
+#     new=sys.stdin.readline().rstrip()
+#     if new not in dic:
+#         dic[new]=len(new)
+#
+# #단어 길이 먼저, 단어 명 순위로 sort =? 결과 왜 튜플로 나오징
+# print(type(dic[0]))
+# dic=sorted(dic.items(), key=lambda x:(x[1],x[0]))
+#
+# #결과 하나씩
+# for a in range(len(dic)):
+#     print(dic[a][0])
+
+#10814 XXXXX (왜??????)
+# import sys
+# N=int(sys.stdin.readline())
+# li=[]
+# for a in range(N):
+#     x=(a,sys.stdin.readline().rstrip().split())
+#     li.append(x)
+#
+# li.sort(key=lambda x : (x[1][0],x[0]))
+#
+# for a in range(len(li)):
+#     print((li[a][1])[0],(li[a][1])[1])
+
+####print('\n'.join(f"n[0] n[1]" for n in sorted(li)))
 
 #값이 같은 원소의 전후관계가 바뀌지 않는 정렬 알고리즘을 안정 정렬(stable sort)이라고 합니다.
