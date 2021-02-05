@@ -122,34 +122,43 @@ N=int(sys.stdin.readline().rstrip())
 #list=[8,4,3,6,8,7,5,2,1]
 push=[]
 rows=[]
+result=[]
 #maxnum=[0]
 maxnum=0
 for a in range(8):
     num=int(sys.stdin.readline().rstrip())
+    #print(num)
     #maxnum.append(num)
 
         # else: #없을때,
         # for b in range(max(maxnum),num)
     if num in push :
-        print('d')
+        #print(num,push,1)
         if push[-1]==num:
             rows.append(push.pop())
-            print('-')
-            print('ddd')
+            result.append('-')
+            #print(num,push,2)
         else:
-            print('NO')
+            #print(num,push,3)
+            #print('NO')
+            result=['NO']
             break
-            print('dddd')
+
         #print('wrong')
     #if not num in push:
     else:
-        print('else')
-        print(maxnum,num)
+        #print('else')
+        #print(maxnum,num)
         for b in range(maxnum, num):
+            #print(b,push)
             push.append(b + 1)
-            print('+')
-            print(push)
+            result.append('+')
+            #print(b,push)
+        rows.append(push.pop())
+        result.append('-')
 
     if num>maxnum:
         maxnum=num
+for a in result:
+    print(a)
 #print(maxnum,push,rows)

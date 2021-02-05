@@ -551,50 +551,185 @@ import sys
 
 #1874
 
-import sys
-N=int(sys.stdin.readline().rstrip())
-push=[]
-rows=[]
-#maxnum=[0]
-maxnum=0
-for a in range(N):
-    num=int(sys.stdin.readline().rstrip())
-    #maxnum.append(num)\
-    if num>maxnum:
-        maxnum=num
-        #print(maxnum)
+# import sys
+# N=int(sys.stdin.readline().rstrip())
+# push=[]
+# rows=[]
+# #maxnum=[0]
+# maxnum=0
+# for a in range(N):
+#     num=int(sys.stdin.readline().rstrip())
+#     #maxnum.append(num)\
+#     if num>maxnum:
+#         maxnum=num
+#         #print(maxnum)
+#
+#         # else: #없을때,
+#         # for b in range(max(maxnum),num)
+#     if num in push :
+#         print('d')
+#         if push[-1]==num:
+#             rows.append(push.pop())
+#             print('-')
+#             print('ddd')
+#         else:
+#             print('NO')
+#             break
+#             print('dddd')
+#         #print('wrong')
+#     #if not num in push:
+#     else:
+#         for b in range(maxnum, num):
+#             push.append(b + 1)
+#             print('+')
+#             print(push)
+#
+# print(maxnum,push,rows)
 
-        # else: #없을때,
-        # for b in range(max(maxnum),num)
-    if num in push :
-        print('d')
-        if push[-1]==num:
-            rows.append(push.pop())
-            print('-')
-            print('ddd')
-        else:
-            print('NO')
-            break
-            print('dddd')
-        #print('wrong')
-    #if not num in push:
-    else:
-        for b in range(maxnum, num):
-            push.append(b + 1)
-            print('+')
-            print(push)
-
-print(maxnum,push,rows)
-
-
-
-        #rows.append(push.pop())
-        #print('-')
-        #print(push, rows, maxnum)
+# XXX=> 시간초과 / pypy는 통과..=> 디붜깅 해결!!!!!!!OOOOO
+# #1874 *****
+# import sys
+# N=int(sys.stdin.readline().rstrip())
+# push=[]
+# rows=[]
+# result=[]
+# maxnum=0
+# for a in range(N):
+#     num=int(sys.stdin.readline().strip())
+#     #if num in push :  #시간초과로 디버깅 엄청 해따ㅠㅠ #in 연산자는 n 시간복잡도
+#     if num <= maxnum: #최대값보다 작을때로 해결 가능
+#         if push[-1]==num:
+#             rows.append(push.pop())
+#             result.append('-')
+#         else:
+#             result=['NO']
+#             break
+#     else:
+#         for b in range(maxnum, num):
+#             push.append(b + 1)
+#             result.append('+')
+#         rows.append(push.pop())
+#         result.append('-')
+#     if num>maxnum:
+#         maxnum=num
+#
+# for a in result:
+#     print(a)
+#
+#
+# #short
+# n=int(input())
+# s=[]
+# op=[]
+# count=1
+# temp=True
+# for i in range(n):
+#     num=int(input())
+#     while count <= num:  # WHILE 문 사용해서 count 값 올려주는 방법!!!!!****
+#         s.append(count)
+#         op.append('+')
+#         count+=1
+#     if s[-1] == num:
+#         s.pop()
+#         op.append('-')
+#     else:
+#         temp=False
+# if temp==False:
+#     print('NO')
+# else:
+#     print('\n'.join(op))
+#
+#     # for i in op:
+#     #     print(i)
+#
+# #https://chancoding.tistory.com/33  다시 보기
 
 # 17298    #1.29 스터디 다시듣기
+# 시간초과
 # import sys
 # N=int(sys.stdin.readline())
+# input=list(map(int,sys.stdin.readline().rstrip().split()))
+# output=[]
+# #print(input)
+# for a in range(N):
+#     #while?
+#     for b in range(a,N):
+#         if input[a]<input[b]:
+#             status=True
+#             output.append(input[b])
+#             break
+#         else:
+#             status=False
+#     if status==False:
+#         output.append(-1)
+#
+# #output=list(map(str,output))
+# #print(' '.join(output))
+# for a in output:
+#     print(a, end=' ')
+
+#스택으로 풀기
+#A=[3 ,2, 1, 6, 5, 4, 7]
+#B=[9,5,4,8]
+list=[]
+result=[]
+count=0
+import sys
+for a in sys.stdin.readline().rstrip().split():
+    list.append(a) #list=    [3] [3,2] [3,2,1] [3,2,1,6] [32165]4]7]
+                   # 9/95/954/9548
+    if list[count]<a:                          #3<a
+        count = len(list) - count - 1
+        for a in range(count):
+            result.append(a) #* len(list-1-count)   #result=[6] * (len(list)-1-count)
+
+        #count=(len(list)-1-count)           #count=(len(list)-1-count)
+    #else:
+    #    result.append(-1)
+print(result)
 
 
+#틀린 답지
+# import sys
+# N=int(sys.stdin.readline())
+# input = list(map(int, sys.stdin.readline().split()))
+# stack = []
+# result=[-1 for _ in range(N)]
+#
+# stack.append(0)
+# i=1
+# while stack and i <N:
+#     while stack and input[stack[-1]]< input[i]:
+#         result[stack[-1]]=input[i]
+#         stack.pop()
+#
+#     stack.append(i)
+#     i+=1
+# for i in range(N):
+#     print(result[i], end= "")
 
+
+#답 OOOOO
+# numbers
+n=int(input())
+nums = list(map(int, input().split()))
+stack = []
+ans = [-1 for _ in range(n)]
+
+for i in range(len(nums)):
+    while len(stack)!=0 and nums[stack[-1]]<nums[i]:
+        ans[stack.pop()]=nums[i]
+    stack.append(i)
+print(*ans)
+
+# N=int(sys.stdin.readline())
+# input=list(map(int,sys.stdin.readline().rstrip().split()))
+# stack=[]
+# output=[]
+#
+# for a in range(N):
+#     if input[a]
+#
+
+
+# 판다스 axis랑 조건문 정리 보기
