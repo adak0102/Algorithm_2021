@@ -136,24 +136,39 @@
 # pop기능을 수행하면 가장 앞 인덱스 cnt에 해당되는 부분을 출력하고 cnt에 1을 더해서 가장 앞쪽을 가르키는 인덱스를 그 다음 칸을 가르키도록 합니다.
 # 초기화를 위해서 queue를 구현한 리스트가 비어있을 경우 전체 데이터를 초기화해주었습니다
 
-#11866
-import sys
+#11866 OOOO ***
+# import sys
+# from collections import deque
+#
+# N,step=map(int,sys.stdin.readline().rstrip().split())
+#
+# list=deque([ _ for _ in range(1,N+1) ])
+# new=[]
+# i=1
+# while list:
+#     #for i in range(N):
+#     if i % step == 0 :
+#         new.append(list.popleft())
+#     else:
+#         list.append(list.popleft())
+#     i+=1
+#     #if i==N:
+#      #   i=0
+#
+#         #else:
+#
+#             #list.leftpop(i)
+#
+# new=deque(map(str,new))
+# #print(new)
+# print('<',', '.join(new),'>',sep='')
+
+#1966
 from collections import deque
+import sys
 
-N,step=map(int,sys.stdin.readline().rstrip().split())
-
-list=deque([ _ for _ in range(N) ])
-new=[]
-i=0
-while list:
-    #for i in range(N):
-    if i % step ==step-1:
-        new.append(list.popleft())
-    i+=1
-    if i==N:
-        i=0
-
-        #else:
-
-            #list.leftpop(i)
-print(new)
+N=int(sys.stdin.readline().rstrip())
+n,index=map(int, sys.stdin.readline().rstrip().spli())
+# for a in range(N):
+cnt=0
+while i<=len(A):
